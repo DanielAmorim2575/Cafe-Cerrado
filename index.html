@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Café Cerrado</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="xic" viewBox="0 0 120 90">
+    <path d="M25 35h60v18a28 28 0 0 1-28 28h-4a28 28 0 0 1-28-28z" fill="var(--pr)"/>
+    <path d="M85 40h8a10 10 0 0 1 0 22h-9" fill="none" stroke="var(--pr)" stroke-width="6"/>
+    <path d="M45 8c-6 8 6 10 0 20M62 8c-6 8 6 10 0 20" fill="none" stroke="var(--ac)" stroke-width="4" stroke-linecap="round"/>
+    <rect x="15" y="84" width="90" height="5" rx="2" fill="var(--gr)"/>
+  </symbol>
+</svg>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="#topo">☕ Café Cerrado</a>
+    <nav aria-label="Principal">
+      <a href="#cardapio">Cardápio</a>
+      <a href="#destaques">Destaques</a>
+      <a href="#saiba">Saiba mais</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button class="alt" id="abrirLogin">Entrar</button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <section id="topo" class="hero">
+    <div>
+      <p class="tag">Brasília · Cerrado</p>
+      <h1>Café especial com sabor de Cerrado</h1>
+      <p>Grãos de pequenos produtores, torra artesanal e um espaço para trabalhar, estudar e conversar. Peça pelo cardápio, acompanhe novidades e ganhe pontos no nosso clube.</p>
+      <p>
+        <a class="btn" href="#cardapio">Ver cardápio</a>
+        <a class="btn" href="#contato" style="background:transparent;color:var(--pr)">Fale conosco</a>
+      </p>
+    </div>
+    <svg viewBox="0 0 120 90" role="img" aria-label="Ilustração de uma xícara de café fumegante">
+      <use href="#xic"/>
+    </svg>
+  </section>
+
+  <section id="destaques" aria-labelledby="t-dest">
+    <h2 id="t-dest">Destaques da semana</h2>
+
+    <div class="car" id="car" role="region" aria-roledescription="carrossel" aria-label="Destaques">
+
+      <div class="slide on">
+        <svg viewBox="0 0 600 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração do pôr do sol no Cerrado">
+          <rect width="600" height="260" fill="#6B3E26"/>
+          <circle cx="440" cy="110" r="60" fill="#F0B880"/>
+          <path d="M0 200q150-60 300-10t300-20v90H0z" fill="#3F5D3A"/>
+        </svg>
+        <p class="cap">Safra nova: Cerrado Mineiro, notas de caramelo e chocolate.</p>
+      </div>
+
+      <div class="slide">
+        <svg viewBox="0 0 600 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de grãos de café">
+          <rect width="600" height="260" fill="#3F5D3A"/>
+          <g fill="#2B1B12">
+            <ellipse cx="200" cy="130" rx="46" ry="30" transform="rotate(-25 200 130)"/>
+            <ellipse cx="300" cy="150" rx="46" ry="30" transform="rotate(20 300 150)"/>
+            <ellipse cx="400" cy="110" rx="46" ry="30" transform="rotate(-10 400 110)"/>
+          </g>
+        </svg>
+        <p class="cap">Torra artesanal feita toda terça na própria loja.</p>
+      </div>
+
+      <div class="slide">
+        <svg viewBox="0 0 600 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de pão de queijo">
+          <rect width="600" height="260" fill="#8A3A0F"/>
+          <circle cx="240" cy="140" r="48" fill="#F0B880"/>
+          <circle cx="350" cy="150" r="48" fill="#E0A96D"/>
+        </svg>
+        <p class="cap">Pão de queijo quentinho das 7h às 10h.</p>
+      </div>
+
+      <div class="ctl">
+        <button class="alt" id="prev" aria-label="Slide anterior">‹</button>
+        <button class="alt" id="next" aria-label="Próximo slide">›</button>
+        <button class="alt" id="pp" aria-label="Pausar rotação automática">Pausar</button>
+        <div class="dots" id="dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cardapio" aria-labelledby="t-card">
+    <h2 id="t-card">Cardápio</h2>
+    <label for="busca">Pesquisar no cardápio</label>
+    <input id="busca" type="search" placeholder="Ex.: cappuccino, pão de queijo">
+
+    <div role="tablist" aria-label="Categorias" id="abas">
+      <button role="tab" aria-selected="true" data-cat="todos">Todos</button>
+      <button role="tab" aria-selected="false" data-cat="cafes">Cafés</button>
+      <button role="tab" aria-selected="false" data-cat="doces">Doces</button>
+      <button role="tab" aria-selected="false" data-cat="salgados">Salgados</button>
+    </div>
+
+    <div class="grid" id="itens" aria-live="polite"></div>
+  </section>
+
+  <section id="saiba" aria-labelledby="t-sab">
+    <h2 id="t-sab">Saiba mais</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>🌱 Origem</h3>
+        <p>Trabalhamos direto com fazendas do Cerrado, pagando acima do mercado e garantindo rastreabilidade do grão.</p>
+      </article>
+      <article class="card">
+        <h3>🔥 Torra</h3>
+        <p>Torra média, que equilibra acidez e doçura, preserva o aroma e evita o amargor excessivo.</p>
+      </article>
+      <article class="card">
+        <h3>♻️ Sustentabilidade</h3>
+        <p>Borra de café vira adubo para hortas comunitárias e copos retornáveis dão desconto.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contato" class="two">
+    <div>
+      <h2>Contato</h2>
+      <p>Av. das Palmeiras, 100 · Asa Sul, Brasília-DF<br>Seg a sáb, 7h às 20h</p>
+      <p>Escreva para nós: dúvidas, reservas de mesa ou pedidos para eventos.</p>
+    </div>
+
+    <form id="form" novalidate aria-label="Formulário de contato">
+      <label for="nome">Nome</label>
+      <input id="nome" name="nome" autocomplete="name" required>
+
+      <label for="email">E-mail</label>
+      <input id="email" type="email" name="email" autocomplete="email" required>
+
+      <label for="assunto">Assunto</label>
+      <select id="assunto">
+        <option>Dúvida</option>
+        <option>Reserva</option>
+        <option>Elogio ou sugestão</option>
+      </select>
+
+      <label for="msg">Mensagem</label>
+      <textarea id="msg" rows="4" required></textarea>
+
+      <p><button type="submit">Enviar mensagem</button></p>
+      <p class="msg" id="fmsg" role="status"></p>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <div class="bar">
+    <span>© 2026 Café Cerrado · Projeto acadêmico fictício</span>
+    <span>Daniel Amorim Carvalho · RA 22604064</span>
+    <a href="#topo">Voltar ao topo ↑</a>
+  </div>
+</footer>
+
+<dialog id="login" aria-labelledby="t-login">
+  <form method="dialog" id="fl" novalidate>
+    <h2 id="t-login">Entrar no clube</h2>
+
+    <label for="lu">E-mail</label>
+    <input id="lu" type="email" autocomplete="username" required>
+
+    <label for="lp">Senha</label>
+    <input id="lp" type="password" autocomplete="current-password" minlength="6" required>
+
+    <p>
+      <button type="submit">Entrar</button>
+      <button type="button" class="alt" id="fechar">Cancelar</button>
+    </p>
+    <p class="msg" id="lmsg" role="status"></p>
+  </form>
+</dialog>
+
+<div class="panel">
+  <div id="pa" role="group" aria-label="Opções de acessibilidade">
+    <strong>Acessibilidade</strong><br>
+    <button class="alt" id="tema" aria-pressed="false">Modo escuro</button>
+    <button class="alt" id="ma">A+</button>
+    <button class="alt" id="me">A−</button>
+    <button class="alt" id="ct" aria-pressed="false">Alto contraste</button>
+    <button class="alt" id="mv" aria-pressed="false">Reduzir movimento</button>
+  </div>
+  <button id="apb" aria-expanded="false" aria-controls="pa">♿ Acessibilidade</button>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
